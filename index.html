@@ -13,16 +13,17 @@
         fetch("https://ci-swapi.herokuapp.com/api/")
             // get response. convert to text and store it in variable response using arrow function
             .then(response => response.text())
-            // convert to json to fetch a JS object
+            // or convert to json to fetch a JS object
             // .then(response => response.json())
-            // chain on a second then method using a function to set the inner text of the content 
-            // div to the data returned
-            .then(data => {
-                document.getElementById("content").innerText = data;
-            })
+            // call the displayData function with the data parameter
+            .then(data => displayData(data))
             .catch((e) => {
                 console.error("Error:", e);
             })
+        // using a function to set the inner text of the content div to the data returned 
+        function displayData(data) {
+            document.getElementById("content").innerText = data;
+        }
     </script>
 </body>
 </html>
